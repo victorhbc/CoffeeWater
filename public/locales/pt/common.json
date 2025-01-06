@@ -1,0 +1,13 @@
+{
+  "welcome": "Bem-vindo",
+  "description": "app localizada.",
+  "drop_wheight": "Tamanho do conta gotas",
+  "drop_wheight_placeholder": "Preparar frascos usando a mesma escala de conta gotas da 'Lotus'?",
+  "in_development": "Em desenvolvimento. Use por sua conta.",
+  "unit": "Unidade",
+  "bottle_size": "Tamanho do frasco",
+  "magnesium": "Cloreto de magnésio",
+  "calcium": "Cloreto de cálcio",
+  "sodium": "Bicarbonato de sódio",
+  "potassium": "Bicarbonato de potássio"
+}

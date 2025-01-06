@@ -1,0 +1,13 @@
+{
+  "welcome": "Welcome",
+  "description": "This is a localized application.",
+  "drop_wheight": "Drop wheight",
+  "drop_wheight_placeholder": "Prepare bottles using the same dropper scale as 'Lotus'?",
+  "in_development": "In development. Use it at your own risk.",
+  "unit": "Unit",
+  "bottle_size": "Bottle size",
+  "magnesium": "magnesium Cloride",
+  "calcium": "calcium Cloride",
+  "sodium": "sodium Bicarbonate",
+  "potassium": "potassium Bicarbonate"
+}
