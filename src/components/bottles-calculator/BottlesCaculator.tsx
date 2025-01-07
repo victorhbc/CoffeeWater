@@ -2,9 +2,9 @@ import { Box, Collapse, IconButton } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
-import LotusBottles from "./lotus/LotusBottles";
+import LotusBottles from "./lotus-bottles/LotusBottles";
 
-function Calculator() {
+function BottlesCalculator() {
   const { t } = useTranslation("common");
 
   const [isOpen, setIsOpen] = useState(false);
@@ -15,13 +15,7 @@ function Calculator() {
   return (
     <Box>
       <Box>
-        <Box
-          width="100%"
-          justifyContent={"center"}
-          alignItems={"center"}
-          display="flex"
-          gap={2}
-        >
+        <Box width="100%" justifyContent={"center"} alignItems={"center"} display="flex" gap={2}>
           <IconButton
             onClick={handleToggle}
             aria-expanded={isOpen}
@@ -46,4 +40,4 @@ function Calculator() {
   );
 }
 
-export default Calculator;
+export default BottlesCalculator;

@@ -2,12 +2,13 @@
   "welcome": "Welcome",
   "description": "This is a localized application.",
   "drop_wheight": "Drop wheight",
-  "drop_wheight_placeholder": "Prepare bottles using the same dropper scale as 'Lotus'?",
+  "drop_wheight_placeholder": "Prepare bottles using the same dropper scale as 'the famous water prepare kit'?",
   "in_development": "In development.",
   "unit": "Unit",
   "bottle_size": "Bottle size",
   "magnesium": "Magnesium Cloride",
   "calcium": "Calcium Cloride",
   "sodium": "Sodium Bicarbonate",
-  "potassium": "Potassium Bicarbonate"
+  "potassium": "Potassium Bicarbonate",
+  "solution_placeholder": "Next feature to be implemented: Prepare concentrated solution for famous water recipes in a single bottle"
 }

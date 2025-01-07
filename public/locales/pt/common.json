@@ -2,12 +2,13 @@
   "welcome": "Bem-vindo",
   "description": "app localizada.",
   "drop_wheight": "Tamanho do conta gotas",
-  "drop_wheight_placeholder": "Preparar frascos usando a mesma escala de conta gotas da 'Lotus'?",
+  "drop_wheight_placeholder": "Preparar frascos usando a mesma escala de conta gotas do 'famoso kit de preparo de  água'?",
   "in_development": "Em desenvolvimento.",
   "unit": "Unidade",
   "bottle_size": "Tamanho do frasco",
   "magnesium": "Cloreto de Magnésio",
   "calcium": "Cloreto de Cálcio",
   "sodium": "Bicarbonato de Sódio",
-  "potassium": "Bicarbonato de Potássio"
+  "potassium": "Bicarbonato de Potássio",
+  "solution_placeholder": "Próxima funcionalidade a ser implementada: Preparar solucao concentrada para receitas de água famosas em um único frasco"
 }

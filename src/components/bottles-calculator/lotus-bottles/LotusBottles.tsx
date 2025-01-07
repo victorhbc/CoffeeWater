@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-} from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Unit } from "../../../helpers/enums/units";
@@ -17,9 +8,6 @@ import MineralTable from "../../mineral-table/mineralTable";
 
 function LotusBottles() {
   const [dropSize, setDropSize] = useState<string>("");
-
-  const { t } = useTranslation("common");
-
   const [dropUnit, setDropUnit] = useState<string | number>("");
   const [openDrop, setOpenDrop] = useState(false);
 
@@ -27,46 +15,35 @@ function LotusBottles() {
   const [openBottle, setOpenBottle] = useState(false);
   const [bottleSize, setBottleSize] = useState<string>("");
 
-  const [magnesium, setMagnesium] = useState<string>("");
-  const [calcium, setCalcium] = useState<string>("");
-  const [sodium, setSodium] = useState<string>("");
-  const [potassium, setPotassium] = useState<string>("");
+  const [minerals, setMinerals] = useState({
+    magnesium: "",
+    calcium: "",
+    sodium: "",
+    potassium: "",
+  });
 
   const [openTable, setOpenTable] = useState(false);
+
+  const { t } = useTranslation("common");
 
   const calculate = () => {
     const drop = convertOzToMl(dropSize, dropUnit as Unit);
     const bottle = convertOzToMl(bottleSize, bottleUnit as Unit);
 
-    const magnesium = caculateLotusBottleSolution(9.0, 4, drop, bottle, 0.0986);
-    const potassium = caculateLotusBottleSolution(7.0, 2, drop, bottle, 0.3906);
-    const sodium = caculateLotusBottleSolution(4.0, 2, drop, bottle, 0.2737);
-    const calcium = caculateLotusBottleSolution(14.0, 4, drop, bottle, 0.2726);
+    const calculatedMinerals = {
+      magnesium: caculateLotusBottleSolution(9.0, 4, drop, bottle, 0.0986).toString(),
+      potassium: caculateLotusBottleSolution(7.0, 2, drop, bottle, 0.3906).toString(),
+      sodium: caculateLotusBottleSolution(4.0, 2, drop, bottle, 0.2737).toString(),
+      calcium: caculateLotusBottleSolution(14.0, 4, drop, bottle, 0.2726).toString(),
+    };
 
-    setMagnesium(magnesium.toString());
-    setPotassium(potassium.toString());
-    setSodium(sodium.toString());
-    setCalcium(calcium.toString());
-
+    setMinerals(calculatedMinerals);
     setOpenTable(true);
   };
+
   return (
-    <Box
-      maxWidth="90%"
-      width="500px"
-      margin="auto"
-      display="flex"
-      flexDirection={"column"}
-      gap={2}
-      marginBottom={2}
-    >
-      <Box
-        width="100%"
-        display={"flex"}
-        gap={2}
-        alignItems={"center"}
-        justifyContent={"center"}
-      >
+    <Box maxWidth="90%" width="500px" margin="auto" display="flex" flexDirection={"column"} gap={2} marginBottom={2}>
+      <Box width="100%" display={"flex"} gap={2} alignItems={"center"} justifyContent={"center"}>
         <TextField
           fullWidth
           placeholder="0.00"
@@ -91,22 +68,15 @@ function LotusBottles() {
             onOpen={() => setOpenDrop(true)}
             value={dropUnit}
             label={t("unit")}
-            onChange={(event: SelectChangeEvent<typeof dropUnit>) =>
-              setDropUnit(event.target.value)
-            }
+            onChange={(event: SelectChangeEvent<typeof dropUnit>) => setDropUnit(event.target.value)}
           >
             <MenuItem value={Unit.OZ}>fl oz</MenuItem>
             <MenuItem value={Unit.ML}>ml</MenuItem>
           </Select>
         </FormControl>
       </Box>
-      <Box
-        width="100%"
-        display={"flex"}
-        gap={2}
-        alignItems={"center"}
-        justifyContent={"center"}
-      >
+
+      <Box width="100%" display={"flex"} gap={2} alignItems={"center"} justifyContent={"center"}>
         <TextField
           fullWidth
           placeholder="0.00"
@@ -132,40 +102,24 @@ function LotusBottles() {
             onOpen={() => setOpenBottle(true)}
             value={bottleUnit}
             label={t("unit")}
-            onChange={(event: SelectChangeEvent<typeof bottleUnit>) =>
-              setBottleUnit(event.target.value)
-            }
+            onChange={(event: SelectChangeEvent<typeof bottleUnit>) => setBottleUnit(event.target.value)}
           >
             <MenuItem value={Unit.OZ}>fl oz</MenuItem>
             <MenuItem value={Unit.ML}>ml</MenuItem>
           </Select>
         </FormControl>
       </Box>
+
       <Button
         variant="outlined"
         onClick={calculate}
         color="primary"
-        disabled={
-          !dropSize ||
-          parseFloat(dropSize) <= 0 ||
-          !bottleSize ||
-          parseFloat(bottleSize) <= 0 ||
-          !dropUnit ||
-          !bottleUnit
-        }
+        disabled={!dropSize || parseFloat(dropSize) <= 0 || !bottleSize || parseFloat(bottleSize) <= 0 || !dropUnit || !bottleUnit}
       >
         {t("calculate")}
       </Button>
 
-      {openTable && (
-        <MineralTable
-          calcium={calcium}
-          magnesium={magnesium}
-          potassium={potassium}
-          sodium={sodium}
-          t={t}
-        />
-      )}
+      {openTable && <MineralTable minerals={minerals} t={t} />}
     </Box>
   );
 }
