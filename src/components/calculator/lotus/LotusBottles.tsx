@@ -27,56 +27,29 @@ function LotusBottles() {
   const [openBottle, setOpenBottle] = useState(false);
   const [bottleSize, setBottleSize] = useState<string>("");
 
-  const [minerals, setMinerals] = useState({
-    magnesium: "",
-    calcium: "",
-    sodium: "",
-    potassium: "",
-  });
+  const [magnesium, setMagnesium] = useState<string>("");
+  const [calcium, setCalcium] = useState<string>("");
+  const [sodium, setSodium] = useState<string>("");
+  const [potassium, setPotassium] = useState<string>("");
 
   const [openTable, setOpenTable] = useState(false);
-
-  const { t } = useTranslation("common");
 
   const calculate = () => {
     const drop = convertOzToMl(dropSize, dropUnit as Unit);
     const bottle = convertOzToMl(bottleSize, bottleUnit as Unit);
 
-    const calculatedMinerals = {
-      magnesium: caculateLotusBottleSolution(
-        9.0,
-        4,
-        drop,
-        bottle,
-        0.0986
-      ).toString(),
-      potassium: caculateLotusBottleSolution(
-        7.0,
-        2,
-        drop,
-        bottle,
-        0.3906
-      ).toString(),
-      sodium: caculateLotusBottleSolution(
-        4.0,
-        2,
-        drop,
-        bottle,
-        0.2737
-      ).toString(),
-      calcium: caculateLotusBottleSolution(
-        14.0,
-        4,
-        drop,
-        bottle,
-        0.2726
-      ).toString(),
-    };
+    const magnesium = caculateLotusBottleSolution(9.0, 4, drop, bottle, 0.0986);
+    const potassium = caculateLotusBottleSolution(7.0, 2, drop, bottle, 0.3906);
+    const sodium = caculateLotusBottleSolution(4.0, 2, drop, bottle, 0.2737);
+    const calcium = caculateLotusBottleSolution(14.0, 4, drop, bottle, 0.2726);
 
-    setMinerals(calculatedMinerals);
+    setMagnesium(magnesium.toString());
+    setPotassium(potassium.toString());
+    setSodium(sodium.toString());
+    setCalcium(calcium.toString());
+
     setOpenTable(true);
   };
-
   return (
     <Box
       maxWidth="90%"
