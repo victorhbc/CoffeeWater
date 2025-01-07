@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 import "./App.css";
 import Header from "./components/header/Header";
@@ -16,6 +16,8 @@ function App() {
     >
       <DevBanner />
       <Header />
+      <Calculator />
+      <Divider sx={{ marginX: 12 }} />
       <Calculator />
     </Box>
   );

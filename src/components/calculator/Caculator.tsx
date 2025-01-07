@@ -2,7 +2,7 @@ import { Box, Collapse, IconButton } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
-import Lotus from "./lotus/Lotus";
+import LotusBottles from "./lotus/LotusBottles";
 
 function Calculator() {
   const { t } = useTranslation("common");
@@ -39,7 +39,7 @@ function Calculator() {
         </Box>
 
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
-          <Lotus />
+          <LotusBottles />
         </Collapse>
       </Box>
     </Box>

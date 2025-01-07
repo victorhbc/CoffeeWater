@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 function LanguageSelector() {
   const { i18n } = useTranslation("common");
 
-  const [alignment, setAlignment] = useState<string | null>("en");
+  const [alignment, setAlignment] = useState<string | null>("pt");
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setAlignment(newValue);
